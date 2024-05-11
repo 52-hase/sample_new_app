@@ -13,3 +13,14 @@
  *= require_tree .
  *= require_self
  */
+ body {
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   height: 100vh;
+   margin: 0;
+ }
+ button {
+   font-size: 24px;
+   padding: 10px 20px;
+ }
