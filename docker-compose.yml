@@ -1,0 +1,30 @@
+version: '3.8'
+
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "3001:3000"
+    volumes:
+      - .:/sample_new_app
+    environment:
+      "SECRET_KEY_BASE": "c8fab80e1249a096811700f1cf2efc5b632e7c58b436e65f1ff497fdcb4bbcf055402980c9e3c7d9234f4e98c0162a3e10db7054b6a317488f86062bef9369f6"
+      RAILS_ENV: production
+    depends_on:
+      - db
+
+  db:
+    image: postgres:latest
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    environment:
+      POSTGRES_USER: example_user
+      POSTGRES_PASSWORD: example_password
+      POSTGRES_DB: example_db
+
+volumes:
+  postgres_data:

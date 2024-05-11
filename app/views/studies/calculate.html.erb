@@ -1,0 +1,9 @@
+<h1>結果</h1>
+<p>勉強時間: <%= @time %>時間</p>
+<p>消費カロリー: <%= @burned_calorie.round(2) %>kcal</p>
+<h2>食べていいもの</h2>
+<ul>
+  <% @foods.each do |food| %>
+    <li><%= food.name %> (<%= food.calorie %>kcal)</li>
+  <% end %>
+</ul>
