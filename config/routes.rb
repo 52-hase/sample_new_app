@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
   root 'studies#top'
-  post 'studies/calculate', to: 'studies#calculate'
-  resources :studies, only: [:new, :create]
+  resources :studies, only: [:new, :create] do
+    collection do
+      post 'calculate'
+    end
+  end
 end
